@@ -1,0 +1,228 @@
+/* ===========================================================================
+ * pptx-studio · 编辑态样式 (assets/editor.css)
+ *
+ * 由 html_render.py 追加在页面基础样式（PAGE_CSS）之后注入，所以同权重的
+ * 规则以本文件为准。这里只加“编辑辅助”（选中框、手柄、属性面板、提示条…），
+ * 绝不改 .slide / .el 的几何 —— 版面尺寸由服务端渲染器说了算。
+ * 单位与语义前缀：body.mode-edit 只在编辑态存在。
+ * =========================================================================== */
+
+/* ---------------------------------------------------------------- 顶栏 */
+
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 44px;
+  display: flex; align-items: center; gap: 10px; padding: 0 14px;
+  background: #12161B; border-bottom: 1px solid #2C333D;
+  color: #E6E9EF; font-size: 12.5px; z-index: 9999;
+}
+#topbar .t { margin-right: auto; color: #fff; font-weight: 600; font-size: 13px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#topbar .sep { width: 1px; height: 20px; background: #2C333D; flex: none; }
+#topbar button, #topbar select {
+  background: #232A33; border: 1px solid #333C48; color: #DCE3EC; border-radius: 6px;
+  padding: 5px 10px; font-size: 12px; font-family: inherit; cursor: pointer;
+}
+#topbar button:hover, #topbar select:hover { background: #2C3542; }
+#topbar button:disabled { opacity: .55; cursor: default; }
+#topbar button.pri { background: #2F6FE4; border-color: #2F6FE4; color: #fff; }
+#topbar button.pri:hover { background: #3A7BF0; }
+#topbar select#layoutsel { max-width: 240px; }
+#topbar select#themebtn { max-width: 150px; }
+
+/* ---------------------------------------------------------------- 属性面板 */
+
+#props {
+  position: sticky; top: 44px;                 /* 让开固定顶栏 */
+  width: 288px; flex: none;
+  height: calc(100vh - 44px);
+  overflow: auto; overscroll-behavior: contain;
+  background: #181C22; border-left: 1px solid #2C333D;
+  padding: 14px; font-size: 12.5px; line-height: 1.5; color: #C9D1DC;
+}
+#props h4 {
+  margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: #7C8899;
+}
+#props .hd {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  font-size: 13px; font-weight: 600; color: #fff; margin: 0 0 10px;
+}
+#props .hd code {
+  font-family: 'Consolas', 'Courier New', monospace; font-size: 11px;
+  color: #8E9AAA; font-weight: 400;
+}
+#props .sect { border-top: 1px solid #2C333D; padding: 12px 0; }
+#props .sect:first-of-type { border-top: 0; padding-top: 0; }
+#props .hint { margin: 6px 0 0; font-size: 11.5px; line-height: 1.6; color: #7C8899; }
+#props .row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* 表单行：标签在左，控件在右 */
+#props .f {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; margin: 6px 0;
+}
+#props .f > span { flex: none; color: #8E9AAA; font-size: 12px; }
+#props .f.col { display: block; }
+#props .f.col > span { display: block; margin-bottom: 5px; }
+
+#props input, #props select, #props textarea {
+  background: #232A33; border: 1px solid #333C48; color: #E6E9EF;
+  border-radius: 6px; padding: 5px 7px; font-size: 12px; font-family: inherit;
+  width: 104px; box-sizing: border-box;
+}
+#props input:focus, #props select:focus, #props textarea:focus {
+  outline: none; border-color: #2F6FE4;
+}
+#props input[type=number] { text-align: right; }
+#props input[type=color] { padding: 0; height: 26px; width: 44px; cursor: pointer; }
+#props input[type=checkbox] { width: auto; height: 15px; accent-color: #2F6FE4; cursor: pointer; }
+#props textarea {
+  width: 100%; resize: vertical; line-height: 1.6;
+  font-family: 'Microsoft YaHei', 'Segoe UI', system-ui, sans-serif;
+}
+#props .grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; }
+#props .grid4 .f { margin: 3px 0; }
+#props .grid4 .f > span { width: 18px; }
+#props .grid4 input { width: 100%; min-width: 0; }
+
+#props .btn {
+  background: #2C3542; border: 1px solid #3A4553; color: #DCE3EC;
+  border-radius: 6px; padding: 6px 10px; font-size: 12px; font-family: inherit;
+  cursor: pointer;
+}
+#props .btn:hover { background: #3A4553; }
+#props .btn.pri { background: #2F6FE4; border-color: #2F6FE4; color: #fff; }
+#props .btn.danger { color: #FF9A8B; border-color: #5A3A36; }
+#props .btn.danger:hover { background: #3A2A28; }
+
+/* 面板里的空状态提示（服务端基础样式里也叫 .ph，这里重新声明成块级文本） */
+#props .ph {
+  display: block; height: auto; margin: 0 0 10px; padding: 0;
+  background: none; border: 0; color: #7C8899; font-size: 12.5px;
+}
+
+/* 未保存标记 */
+#props .dirty { display: none; font-size: 11px; font-weight: 400; color: #FFC46B;
+  border: 1px solid #5A4A2A; background: #2A2418; border-radius: 10px; padding: 1px 7px; }
+#props .dirty.on { display: inline-block; }
+
+/* ---------------------------------------------------------------- 选中 / 悬停 / 溢出 */
+
+/* 悬停：虚线提示；选中：蓝色实线。顺序不能反，同权重靠后生效。 */
+.el:hover { outline: 1px dashed rgba(76, 141, 255, .65); outline-offset: 0; }
+body.mode-edit .el.locked, .el.locked { outline: none !important; cursor: default; }
+body.mode-edit .el:not(.locked) { cursor: move; }
+
+/* 溢出标记：外框红线 + 内层浅红底，内层用 inset 阴影避免被 .el 的 overflow 裁掉 */
+body.mode-edit .el.ovf { outline: 2px solid #FF4D4F; outline-offset: 1px; }
+.tx.ovf { box-shadow: inset 0 0 0 2px #FF4D4F; background: rgba(255, 77, 79, .07); }
+
+.el.sel { outline: 2px solid #4C8DFF; outline-offset: 0; }   /* 选中优先于溢出/悬停 */
+
+body.ed-drag { user-select: none; -webkit-user-select: none; cursor: default; }
+body.ed-drag .el:hover { outline: none; }
+body.mode-edit .el, body.mode-edit #__handles .h { touch-action: none; }
+
+/* 文字编辑态 */
+.tx:focus { outline: none; background: rgba(76, 141, 255, .06); }
+.tx[contenteditable="true"] {
+  cursor: text; background: rgba(76, 141, 255, .08);
+  box-shadow: inset 0 0 0 1px rgba(76, 141, 255, .5);
+}
+/* 讲稿始终隐藏：只通过 data-notes / 属性面板编辑 */
+.slide .notes, .notes[hidden] { display: none !important; }
+
+/* ---------------------------------------------------------------- 缩放手柄 */
+
+#__handles { position: absolute; pointer-events: none; z-index: 99900; }
+#__handles .h {
+  position: absolute; box-sizing: border-box; padding: 0; margin: 0;
+  width: calc(8px * var(--k, 1)); height: calc(8px * var(--k, 1));
+  background: #fff; border: 1px solid #2F6FE4; border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .25);
+  font-size: 0; line-height: 0; pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+#__handles .h-nw { left: 0;    top: 0;    cursor: nwse-resize; }
+#__handles .h-n  { left: 50%;  top: 0;    cursor: ns-resize; }
+#__handles .h-ne { left: 100%; top: 0;    cursor: nesw-resize; }
+#__handles .h-e  { left: 100%; top: 50%;  cursor: ew-resize; }
+#__handles .h-se { left: 100%; top: 100%; cursor: nwse-resize; }
+#__handles .h-s  { left: 50%;  top: 100%; cursor: ns-resize; }
+#__handles .h-sw { left: 0;    top: 100%; cursor: nesw-resize; }
+#__handles .h-w  { left: 0;    top: 50%;  cursor: ew-resize; }
+
+/* ---------------------------------------------------------------- 图表数据弹窗 */
+
+#__dlg {
+  position: fixed; inset: 0; z-index: 100000; display: none;
+  background: rgba(8, 10, 14, .62); padding: 40px 16px;
+}
+#__dlg.on { display: block; }
+#__dlg .box {
+  width: 100%; max-width: 460px; margin: 4vh auto 0;
+  background: #181C22; border: 1px solid #2C333D; border-radius: 10px;
+  padding: 16px; color: #C9D1DC; font-size: 12.5px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .55);
+}
+#__dlg h4 { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: #7C8899; }
+#__dlg .f { display: block; margin: 6px 0 10px; }
+#__dlg .f > span { display: block; margin-bottom: 5px; color: #8E9AAA; font-size: 12px; }
+#__dlg input, #__dlg textarea {
+  width: 100%; box-sizing: border-box; background: #232A33; border: 1px solid #333C48;
+  color: #E6E9EF; border-radius: 6px; padding: 6px 8px; font-size: 12.5px;
+  font-family: 'Consolas', 'Courier New', monospace; resize: vertical;
+}
+#__dlg input:focus, #__dlg textarea:focus { outline: none; border-color: #2F6FE4; }
+#__dlg .hint { margin: 0 0 6px; font-size: 11.5px; color: #7C8899; }
+#__dlg .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
+#__dlg .btn {
+  background: #2C3542; border: 1px solid #3A4553; color: #DCE3EC; border-radius: 6px;
+  padding: 6px 14px; font-size: 12px; font-family: inherit; cursor: pointer;
+}
+#__dlg .btn.pri { background: #2F6FE4; border-color: #2F6FE4; color: #fff; }
+
+/* ---------------------------------------------------------------- HUD / 提示条 */
+
+#hud {
+  position: fixed; right: 14px; bottom: 12px; z-index: 99999;
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 12px; border-radius: 20px;
+  background: rgba(0, 0, 0, .55); color: #fff; font-size: 12px; letter-spacing: .04em;
+}
+#hud button {
+  background: none; border: 0; color: #fff; cursor: pointer;
+  font-size: 12px; font-family: inherit; opacity: .85; padding: 0;
+}
+#hud button:hover { opacity: 1; }
+body.mode-edit #hud { right: 302px; }          /* 让开右侧属性面板 */
+
+#toast {
+  position: fixed; left: 50%; bottom: 54px; transform: translateX(-50%);
+  max-width: 70vw; padding: 9px 16px; border-radius: 8px;
+  background: rgba(20, 24, 30, .94); color: #fff;
+  border: 1px solid #2C333D; font-size: 13px; line-height: 1.5;
+  white-space: pre-wrap; word-break: break-all;
+  opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 99999;
+}
+#toast.on { opacity: 1; }
+/* 只有导出路径那一小段可以选中复制，提示条本身仍然穿透点击 */
+#toast .pick {
+  pointer-events: auto; user-select: text; -webkit-user-select: text;
+  cursor: text; font-family: 'Consolas', 'Courier New', monospace;
+  color: #9FD0FF; padding: 0 2px;
+}
+body.mode-edit #toast { left: calc(50% - 144px); }   /* 相对版面居中，而不是相对窗口 */
+
+/* ---------------------------------------------------------------- 打印 */
+
+@media print {
+  @page { size: var(--pw) var(--ph); margin: 0; }
+  body { background: #fff; }
+  /* 编辑态的一切都不打印 */
+  #topbar, #props, #hud, #toast, #__handles, #__dlg, .tag { display: none !important; }
+  .el:hover, .el.sel, .el.ovf { outline: none !important; }
+  .tx.ovf { box-shadow: none !important; background: none !important; }
+  .tx[contenteditable="true"] { background: none !important; box-shadow: none !important; }
+}

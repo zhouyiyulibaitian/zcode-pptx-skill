@@ -1,0 +1,6 @@
+# keep text files LF in the repository so the CLI runs on Unix without a CRLF shebang
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pptx binary
+*.pdf binary

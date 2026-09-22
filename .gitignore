@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Generated decks and outputs (regenerate with: studio.py demo / build / pdf / shots)
+work/
+output/
+demo/
+*.edit.html
+*.print.html
+*.resolved.json
+*-shots/
+*.pptx
+*.pdf
+*.theme.json
+
+# keep the sample artefacts referenced by the README
+# sample artefacts referenced by the README (negations cannot re-include files
+# inside an ignored directory, so the sample folder is not matched by *-shots/)
+!docs/sample/deck.json
+!docs/sample/screens/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

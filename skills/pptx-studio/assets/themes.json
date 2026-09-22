@@ -1,0 +1,195 @@
+{
+  "swiss": {
+    "name": "瑞士网格",
+    "desc": "国际主义排版：纯白底、大字号无衬线标题、正红强调、细分割线、无圆角。适合研究汇报、作品集、观点输出。",
+    "fonts": {
+      "title": {"latin": "Arial", "ea": "微软雅黑", "html": "'Arial','Helvetica Neue','Microsoft YaHei','微软雅黑',sans-serif"},
+      "body": {"latin": "Arial", "ea": "微软雅黑", "html": "'Arial','Helvetica Neue','Microsoft YaHei','微软雅黑',sans-serif"},
+      "mono": {"latin": "Consolas", "ea": "微软雅黑", "html": "'Consolas','Courier New',monospace"}
+    },
+    "colors": {
+      "bg": "#FFFFFF",
+      "surface": "#F4F4F2",
+      "surfaceAlt": "#EBEBE8",
+      "text": "#111111",
+      "muted": "#6B6B6B",
+      "primary": "#E23A2E",
+      "accent": "#111111",
+      "onPrimary": "#FFFFFF",
+      "line": "#D8D8D4"
+    },
+    "geometry": {
+      "margin": 0.95,
+      "gutter": 0.34,
+      "radius": 0.0,
+      "titleSize": 30,
+      "subtitleSize": 15,
+      "bodySize": 15,
+      "smallSize": 11.5,
+      "coverTitleSize": 58,
+      "sectionTitleSize": 46,
+      "cardTitleSize": 17,
+      "titleLineHeight": 1.08,
+      "bodyLineHeight": 1.5,
+      "logoText": ""
+    },
+    "style": {
+      "titleWeight": 700,
+      "titleRule": true,
+      "titleRuleWidth": 1.1,
+      "headerMeta": true,
+      "cardStyle": "outline",
+      "cardFill": "#F4F4F2",
+      "cardLine": "#D8D8D4",
+      "pageNumber": true,
+      "footerText": "",
+      "gradient": null,
+      "bigNumberWeight": 700
+    }
+  },
+  "ink": {
+    "name": "深墨商务",
+    "desc": "深墨蓝底配暖金强调，圆角卡片、稳重克制。适合答辩汇报、项目结题、商业提案。",
+    "fonts": {
+      "title": {"latin": "Segoe UI", "ea": "微软雅黑", "html": "'Segoe UI','Microsoft YaHei','微软雅黑',sans-serif"},
+      "body": {"latin": "Segoe UI", "ea": "等线", "html": "'Segoe UI','DengXian','等线','Microsoft YaHei',sans-serif"},
+      "mono": {"latin": "Consolas", "ea": "等线", "html": "'Consolas','Courier New',monospace"}
+    },
+    "colors": {
+      "bg": "#F7F8FA",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#EDF0F5",
+      "text": "#16233A",
+      "muted": "#5C6A80",
+      "primary": "#1F4E79",
+      "accent": "#C9A227",
+      "onPrimary": "#FFFFFF",
+      "line": "#DCE2EA",
+      "dark": "#0E1B2E"
+    },
+    "geometry": {
+      "margin": 0.9,
+      "gutter": 0.32,
+      "radius": 0.12,
+      "titleSize": 28,
+      "subtitleSize": 14,
+      "bodySize": 15,
+      "smallSize": 11,
+      "coverTitleSize": 46,
+      "sectionTitleSize": 38,
+      "cardTitleSize": 16,
+      "titleLineHeight": 1.15,
+      "bodyLineHeight": 1.55,
+      "logoText": ""
+    },
+    "style": {
+      "titleWeight": 700,
+      "titleRule": true,
+      "titleRuleWidth": 1.6,
+      "headerMeta": true,
+      "cardStyle": "soft",
+      "cardFill": "#FFFFFF",
+      "cardLine": "#DCE2EA",
+      "pageNumber": true,
+      "footerText": "",
+      "gradient": {"from": "#0E1B2E", "to": "#1F4E79", "angle": 45},
+      "bigNumberWeight": 700
+    }
+  },
+  "tech": {
+    "name": "科技渐变",
+    "desc": "深色界面配紫蓝霓虹渐变与青绿高亮，玻璃质感卡片。适合技术方案、产品发布、AI 主题。",
+    "fonts": {
+      "title": {"latin": "Segoe UI", "ea": "微软雅黑", "html": "'Segoe UI','Microsoft YaHei','微软雅黑',sans-serif"},
+      "body": {"latin": "Segoe UI", "ea": "微软雅黑", "html": "'Segoe UI','Microsoft YaHei','微软雅黑',sans-serif"},
+      "mono": {"latin": "Consolas", "ea": "微软雅黑", "html": "'Consolas','Courier New',monospace"}
+    },
+    "colors": {
+      "bg": "#0B1020",
+      "surface": "#151C33",
+      "surfaceAlt": "#1D2745",
+      "text": "#EAF0FF",
+      "muted": "#9AA8C7",
+      "primary": "#7C5CFF",
+      "accent": "#25E0C0",
+      "onPrimary": "#0B1020",
+      "line": "#2A3557"
+    },
+    "geometry": {
+      "margin": 0.9,
+      "gutter": 0.32,
+      "radius": 0.16,
+      "titleSize": 28,
+      "subtitleSize": 14,
+      "bodySize": 15,
+      "smallSize": 11,
+      "coverTitleSize": 50,
+      "sectionTitleSize": 40,
+      "cardTitleSize": 16,
+      "titleLineHeight": 1.15,
+      "bodyLineHeight": 1.55,
+      "logoText": ""
+    },
+    "style": {
+      "titleWeight": 700,
+      "titleRule": false,
+      "titleRuleWidth": 1.2,
+      "headerMeta": true,
+      "cardStyle": "glass",
+      "cardFill": "#1A2340",
+      "cardLine": "#33406B",
+      "pageNumber": true,
+      "footerText": "",
+      "gradient": {"from": "#141B36", "to": "#2B1E4F", "angle": 60},
+      "bigNumberWeight": 700
+    }
+  },
+  "paper": {
+    "name": "纸感学术",
+    "desc": "米白纸底、衬线标题、墨绿与砖红点缀、细线框。适合学术报告、理论研究、文献综述。",
+    "fonts": {
+      "title": {"latin": "Georgia", "ea": "Noto Serif SC", "html": "'Georgia','Noto Serif SC','Source Han Serif SC','宋体',serif"},
+      "body": {"latin": "Georgia", "ea": "等线", "html": "'Georgia','DengXian','等线','Microsoft YaHei',serif"},
+      "mono": {"latin": "Consolas", "ea": "等线", "html": "'Consolas','Courier New',monospace"}
+    },
+    "colors": {
+      "bg": "#FAF7F0",
+      "surface": "#F2EDE1",
+      "surfaceAlt": "#E9E2D2",
+      "text": "#2B2723",
+      "muted": "#6E655A",
+      "primary": "#2F5D50",
+      "accent": "#A8442B",
+      "onPrimary": "#FAF7F0",
+      "line": "#D9D0BE"
+    },
+    "geometry": {
+      "margin": 1.0,
+      "gutter": 0.34,
+      "radius": 0.02,
+      "titleSize": 28,
+      "subtitleSize": 14,
+      "bodySize": 15,
+      "smallSize": 11,
+      "coverTitleSize": 46,
+      "sectionTitleSize": 38,
+      "cardTitleSize": 16,
+      "titleLineHeight": 1.2,
+      "bodyLineHeight": 1.6,
+      "logoText": ""
+    },
+    "style": {
+      "titleWeight": 700,
+      "titleRule": true,
+      "titleRuleWidth": 0.8,
+      "headerMeta": true,
+      "cardStyle": "outline",
+      "cardFill": "#F2EDE1",
+      "cardLine": "#D9D0BE",
+      "pageNumber": true,
+      "footerText": "",
+      "gradient": null,
+      "bigNumberWeight": 700
+    }
+  }
+}

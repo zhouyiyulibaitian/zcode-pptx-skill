@@ -1,0 +1,14 @@
+{
+  "name": "pptx-studio",
+  "version": "1.0.0",
+  "description": "Create, edit, analyse and export presentations with an HTML-editable workflow: read existing PPTX files, modify them while keeping their formatting, preview and edit decks in the browser, and export fully editable PPTX and PDF.",
+  "description_i18n": {
+    "en": "Presentation workflow for PPTX: read/analyse existing decks, edit them in place, generate new decks from themes or templates, preview and edit in the browser, export fully editable PPTX.",
+    "zh-CN": "演示文稿工作流：读取与分析已有 PPTX、保留原格式地修改、按主题或模板生成新 PPT、在浏览器里预览与编辑、导出完全可编辑的 PPTX 与 PDF。"
+  },
+  "author": {
+    "name": "zhouyiyulibaitian"
+  },
+  "license": "MIT",
+  "skills": "skills"
+}

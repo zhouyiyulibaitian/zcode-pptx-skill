@@ -1,0 +1,21 @@
+{
+  "name": "zcode-pptx-skill",
+  "owner": {
+    "name": "zhouyiyulibaitian"
+  },
+  "metadata": {
+    "description": "pptx-studio marketplace: HTML-editable presentation workflow for ZCode / Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pptx-studio",
+      "description": "制作、修改、分析、导出演示文稿（PPT/幻灯片/deck）。读取并解析已有 PPTX，在保留原格式的前提下批量修改，转成可在浏览器里预览与点击编辑的 HTML，按内置主题或现有模板生成新 PPT，并导出原生可编辑的 PPTX 与 PDF。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/pptx-studio"
+      ]
+    }
+  ]
+}
